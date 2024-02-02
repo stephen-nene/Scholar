@@ -113,11 +113,15 @@ function Navbar({loggedin=true}) {
           <div className="pl-16 ">
             <div className="flex flex-col gap-8 font-bold tracking-wider">
               <Link href="#" className="">
-                Features
+                Home
               </Link>
-              <Link href="#">Pricing</Link>
-              <Link href="#">Download</Link>
-              <Link href="#">Classic</Link>
+              <Link href="#">Shop</Link>
+              <Link href="#">Contact-us</Link>
+              <Link href="#">Profile</Link>
+              <button>
+                  {loggedin?<Link>Dashboard</Link>:<Link>Get-Started</Link>}
+                  
+                  </button>
             </div>
           </div>
         </div>
