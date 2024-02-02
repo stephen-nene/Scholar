@@ -50,10 +50,10 @@ function Navbar({loggedin=true}) {
   }, []);
 
   return (
-    <div
-    className={`bg-gray-100 fixed top-0 w-full ${ isScrolled ? "" : "bg-transparent"
-    } bg-opacity-40 backdrop-blur-xl  duration-300 ease-in-out mb-22`}
-  >
+<div
+  className={`fixed top-0 w-full duration-100 ease-in-out mb-22 bg-gray-100 bg-opacity-40 backdrop-blur-xl
+   ${!isScrolled && !toggleMenu ? "bg-transparent" : "  "}`}
+>
       <nav>
         <div className="max-w-9xl mx-auto">
           <div className="flex mx-auto justify-between w-5/6 ">
@@ -63,7 +63,7 @@ function Navbar({loggedin=true}) {
               <div>
                 <Link
                   href="/"
-                  className="flex gap-1 font-bold text-gray-950 items-center "
+                  className="flex gap-1 font-bold text-gray-950 hover:text-yellow-500 items-center "
                 >
                   <FaSchool className="h-6 w-6 text-primary" />
                   <span>Scholar</span>
@@ -85,40 +85,39 @@ function Navbar({loggedin=true}) {
               </div>
             </div>
             {/* secondary */}
-            <div className="flex gap-6">
+            <div className="flex gap-2">
 
-              <div className="flex items-center gap-3">
-                <button className={`${darkMode?'bg':''}`} onClick={()=>dispatch(setDarkMode(!darkMode))}>
+              <div className="flex items-center">
+                <div className={` hover:text-yellow-500 ${darkMode?'text-white':'text-black'} `} onClick={()=>dispatch(setDarkMode(!darkMode))}>
                   {!darkMode ? <FaMoon size={25} /> : <FaRegSun size={25} />}
-                </button>
+                </div>
               </div>
               {/* Mobile navigation toggle */}
-              <div className="lg:hidden flex items-center gap-2">
-                <button onClick={() => setToggleMenu(!toggleMenu)}>
-                  {!toggleMenu? <FaBarsStaggered size={20}/>:<IoClose size={20}  />}
-                
-                
-                
-                  {/* <Bars3Icon /> */}
-                </button>
+              <div className="lg:hidden flex items-center ">
+                <div 
+                className={`cursor-pointer  hover:text-yellow-500  ${darkMode?'text-white':'text-black'} `} 
+                onClick={()=>setToggleMenu(!toggleMenu)}
+                >
+                  {!toggleMenu? <FaBarsStaggered size={25}/>:<IoClose className=' text-3xl'  />}
+                </div>
               </div>
             </div>
           </div>
         </div>
         {/* mobile navigation */}
         <div
-          className={`fixed z-40 w-full ${darkMode?'bg-gray-900':'bg-gray-200'}  overflow-hidden flex flex-col lg:hidden gap-12  origin-top duration-300 ${
+          className={`fixed  w-full ${darkMode?'bg-gray-100':'bg-white'} duration-100 ease-in-out bg-opacity-40 backdrop-blur-xl overflow-hidden flex flex-col lg:hidden gap-12   ${
             !toggleMenu ? "h-0" : "h-"
           }`}
         >
-          <div className="px-8">
+          <div className="pl-16 ">
             <div className="flex flex-col gap-8 font-bold tracking-wider">
-              <a href="#" className="hover:text-rose-500">
+              <Link href="#" className="">
                 Features
-              </a>
-              <a href="#">Pricing</a>
-              <a href="#">Download</a>
-              <a href="#">Classic</a>
+              </Link>
+              <Link href="#">Pricing</Link>
+              <Link href="#">Download</Link>
+              <Link href="#">Classic</Link>
             </div>
           </div>
         </div>
