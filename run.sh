@@ -2,7 +2,7 @@
 
 # fuser -k 1420/tcp
 # Start the Rails server
-cd rails-end
+cd api
 rails s &
 
 # Wait for the Rails server to start (adjust this sleep duration based on your app's startup time)

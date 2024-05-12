@@ -68,7 +68,7 @@ function Navbar({ }) {
                   className="flex gap-1 font-bold  hover:text-yellow-500 items-center "
                 >
                   <FaSchool className="h-6 w-6 text-primary" />
-                  <span>Logo</span>
+                  <span>School</span>
                 </Link>
               </div>
               {/* primary */}
@@ -114,8 +114,9 @@ function Navbar({ }) {
                 Home
               </Link>
               <Link to="/shop" onClick={handleLinkClick}>Shop</Link>
-              <Link to="/profile" onClick={handleLinkClick}>Profile</Link>
+              {/* <Link to="/courses" onClick={handleLinkClick}>Courses</Link> */}
               <Link to="/about-us" onClick={handleLinkClick}>Abouts</Link>
+              <Link to="/profile" onClick={handleLinkClick}>Profile</Link>
               <button onClick={handleLinkClick}>
                 {loggedin ? <Link to="/dash">Dashboard</Link> : <Link to="/login">Get-Started</Link>}
               </button>
