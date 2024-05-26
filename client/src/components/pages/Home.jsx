@@ -1,16 +1,22 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import heroimg from  '../../assets/images/kijanabook.jpg'
 
 export default function Home({ darkmode }) {
     return (
         <div className={`-3 ${darkmode ? 'bg-gray-100' : 'bg-gray-950 text-white'} min-h-screen`}>
-
             {/* Hero Section */}
-            <section className={`${darkmode ? 'bg-' : 'bg-gray-7'}  text-center py-20`}>
-                <h1 className="text-5xl font-bold mb-4">Welcome to Your AuthAppp</h1>
-                <p className="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sagittis eget nunc ut consequat.</p>
-                <button className="bg-sky-500 text-gray-900 px-6 py-2 rounded-full mt-8 hover:bg-sky-600"><Link to={'/login'}>Get Started</Link></button>
-            </section>
+            <section className={`${darkmode ? 'bg-' : 'bg-gray-7'} text-left px-6 py-20 relative overflow-hidden`}>
+    <h1 className="text-5xl font-bold mb-4">Welcome to <span className="text-yellow-500">Scholar School</span></h1>
+    <p className="text-lg mb-4">Building a Stronger Tomorrow, One Hero at a Time.</p>
+    {/* Show image only for desktop and larger screens */}
+    <div className="hidden md:block">
+        <img src={heroimg} alt="Hero" className="absolute inset-0 object-cover w-full h-full opacity-30" style={{ zIndex: 1 }} />
+    </div>
+    <button style={{ zIndex: 2 }} className="bg-sky-500 text-gray-900 px-6 py-2 rounded-full mt-8 hover:bg-sky-600 relative">
+        <Link to={'/login'}>Get Started</Link>
+    </button>
+</section>
 
             {/* Features Section */}
             <section className="py-12 px-8">
